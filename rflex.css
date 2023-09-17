@@ -1,3 +1,4 @@
+/* ESTA HOJA DE ESTILOS SE HIZO CON FLEXBOX */
 * {
 	padding: 0;
 	margin: 0;
@@ -24,9 +25,21 @@ header{
 	max-width: 1200px;
 	margin: auto;
 	padding: 40px 0;
-	display: flex; /*Para que todas las "card" y el "banner" queden 
+	display: flex; /*Todas las "card" y el "banner" quedan 
 	agrupados ocupando todo el ancho de la pantalla */
-	gap: 20px; /*Para separar las "card" del "banner" */
+	gap: 20px; /*Separa las "card" del "banner" */
+}
+
+.contenedor-conciertos{
+	width: 70%; /* Las "card" quedan agrupadas en el lado izquierdo del
+	contenedor ocupando el 70% de su ancho (el 30% del lado derecho será
+	ocupado por el "banner") */
+	display: flex; /* Las "card" pueden agruparse dentro de una misma
+	línea del "contenedor-conciertos" */
+	flex-wrap: wrap; /* Complementa la instrucción anterior permitiendo
+	que las "card" se distribuyan en más de una línea dentro del 
+	"contenedor-conciertos" */
+	gap: 20px; /* Separa las "card" entre sí */
 }
 
 .card {
@@ -38,11 +51,19 @@ header{
 	overflow: hidden;
 	background-size: cover;
 	background-position: center center;
+	width: calc(33.33% - 20px); /* Cada "card" ocupa 1/3 del ancho disponible en el
+	"contenedor-conciertos" */
 }
-/*
+
 .card .textos {
-	height: 100%;
-} */
+	height: 100%; /* Los textos deben ocupar la totalidad de la altura
+	de la "card" para que las siguientes instrucciones puedan tener efecto */
+	display: flex; /* Acomoda los textos en una misma línea */
+	flex-direction: column; /* Cambia la orientación de fila a columna
+	haciendo que los textos queden alineados uno debajo del otro */
+	justify-content: space-between; /* Separa los textos dejando todo el
+	espacio no ocupado en el medio */
+} 
 
 .banner {
 	border-radius: 10px;
@@ -50,6 +71,12 @@ header{
 	padding: 20px;
 	background-size: cover;
 	background-position: center center;
+	width: 30%; /* El "banner" ocupa el 30% del lado derecho del "contenedor" */
+	display: flex; /* Acomoda los textos en una misma línea */
+	flex-direction: column; /* Cambia la orientación de fila a columna
+	haciendo que los textos queden alineados uno debajo del otro */
+	justify-content: space-between; /* Separa los textos dejando todo el
+	espacio no ocupado en el medio */
 }
 
 .banner ul {
